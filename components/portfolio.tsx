@@ -1,128 +1,178 @@
 "use client"
 
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Maximize2, X } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 const projects = [
   {
     id: 1,
-    title: "Luxury Modern Kitchen",
-    category: "Interior Design",
+    title: "Luxury Kitchen Installation",
+    category: "Kitchen",
     image: "/images/1.jpg",
-    description: "Premium black and white kitchen with marble island and custom cabinetry",
+    description: "Premium kitchen and cupboard installation with marble finishes and dark cabinetry.",
+    span: "md:col-span-2 md:row-span-2",
   },
   {
     id: 2,
-    title: "Contemporary White Kitchen",
-    category: "Interior Design",
-    image: "/images/2.jpg",
-    description: "Sleek white kitchen with integrated appliances and marble countertops",
+    title: "Custom Entertainment Wall",
+    category: "Carpentry",
+    image: "/images/8.jpg",
+    description: "Warm timber feature wall with integrated shelving, lighting, and TV installation.",
+    span: "",
   },
   {
     id: 3,
-    title: "Luxury Bar & Entertainment",
-    category: "Interior Design",
-    image: "/images/3.jpg",
-    description: "Premium home bar with wine collection and ambient lighting",
+    title: "Bathroom Renovation",
+    category: "Bathroom",
+    image: "/images/remodeling-1.jpg",
+    description: "Bathroom renovation with tiling, fixture placement, and clean finishing.",
+    span: "",
   },
   {
     id: 4,
-    title: "Modern TV Entertainment Unit",
-    category: "Interior Design",
-    image: "/images/4.jpg",
-    description: "Sophisticated marble TV wall with custom cabinetry and shelving",
+    title: "Precision Floor Tiling",
+    category: "Tiling",
+    image: "/images/floor-tiling.jpg",
+    description: "Floor tiling with leveling systems for a durable, clean installation.",
+    span: "md:col-span-2",
   },
   {
     id: 5,
-    title: "Modern Bedroom Wardrobe",
-    category: "Carpentry",
-    image: "/images/5.jpg",
-    description: "Custom built-in wardrobe with light wood finish and marble flooring",
+    title: "Residential Build",
+    category: "Construction",
+    image: "/images/construction-1.jpg",
+    description: "Residential construction work with exterior finishing and architectural detail.",
+    span: "",
   },
   {
     id: 6,
-    title: "White Modern Kitchen Setup",
-    category: "Interior Design",
-    image: "/images/6.jpg",
-    description: "Contemporary kitchen with integrated appliances and clean lines",
+    title: "Polished Flooring",
+    category: "Flooring",
+    image: "/images/polished-floor.jpg",
+    description: "High-gloss floor finishing for a premium, light-reflective interior.",
+    span: "",
   },
   {
     id: 7,
-    title: "Elegant Bedroom Closet",
-    category: "Carpentry",
-    image: "/images/7.jpg",
-    description: "Spacious custom closet with premium light wood finish",
+    title: "Kitchen Renovation",
+    category: "Renovation",
+    image: "/images/white-kitchen-1.jpg",
+    description: "Modern white kitchen with custom cabinets, island work, and lighting.",
+    span: "md:col-span-2",
   },
   {
     id: 8,
-    title: "Wood-Paneled Entertainment Wall",
-    category: "Interior Design",
-    image: "/images/8.jpg",
-    description: "Stunning timber feature wall with integrated TV and accent lighting",
+    title: "Custom Wardrobes",
+    category: "Carpentry",
+    image: "/images/5.jpg",
+    description: "Built-in bedroom cupboard system with integrated storage and desk space.",
+    span: "",
   },
 ]
 
+const categories = ["All", "Kitchen", "Carpentry", "Bathroom", "Tiling", "Construction", "Flooring", "Renovation"]
+
 export default function Portfolio() {
+  const [selectedCategory, setSelectedCategory] = useState("All")
+  const [activeProject, setActiveProject] = useState<(typeof projects)[number] | null>(null)
+
+  const filteredProjects =
+    selectedCategory === "All" ? projects : projects.filter((project) => project.category === selectedCategory)
+
   return (
-    <section id="portfolio" className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 space-y-4">
-          <span className="text-sm font-semibold text-accent uppercase tracking-wider bg-accent/10 px-4 py-2 rounded-full inline-block">
-            Our Work
-          </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Featured <span className="text-primary">Projects</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Showcase of our finest work across residential and commercial projects
-          </p>
+    <section id="portfolio" className="bg-background py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className="section-kicker">Our Work</p>
+            <h2 className="mt-5 text-4xl font-bold leading-tight text-foreground lg:text-6xl">
+              Real project photos, crafted into spaces people use every day.
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`border px-4 py-2 text-sm font-bold transition-all ${
+                  selectedCategory === category
+                    ? "border-primary bg-primary text-[#10141b]"
+                    : "border-border bg-card text-foreground hover:border-primary"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {projects.map((project) => (
-            <div
+        <div className="grid auto-rows-[260px] grid-cols-1 gap-5 md:grid-cols-4">
+          {filteredProjects.map((project) => (
+            <article
               key={project.id}
-              className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary transition-all duration-300 hover:shadow-xl"
+              className={`group relative overflow-hidden bg-[#10141b] ${project.span}`}
             >
-              {/* Image */}
-              <div className="relative h-64 overflow-hidden bg-muted">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <Link href="/projects" className="w-full">
-                    <button className="bg-primary text-primary-foreground px-4 py-2 rounded-lg flex items-center gap-2 w-full justify-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                      View Project
-                      <ExternalLink size={16} />
-                    </button>
-                  </Link>
-                </div>
+              <img
+                src={project.image}
+                alt={`${project.title} by Guivas & K Design Projects (Pty) Ltd`}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-90" />
+              <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                <p className="mb-2 text-xs font-black uppercase tracking-[0.28em] text-primary">{project.category}</p>
+                <h3 className="text-2xl font-bold">{project.title}</h3>
+                <p className="mt-2 max-w-xl text-sm text-white/72">{project.description}</p>
               </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <p className="text-sm text-accent font-semibold uppercase tracking-wider mb-2">{project.category}</p>
-                <h3 className="text-xl font-bold text-foreground mb-2">{project.title}</h3>
-                <p className="text-muted-foreground">{project.description}</p>
-              </div>
-            </div>
+              <button
+                onClick={() => setActiveProject(project)}
+                className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center bg-white/12 text-white opacity-0 backdrop-blur transition-all hover:bg-primary hover:text-[#10141b] group-hover:opacity-100"
+                aria-label={`Open ${project.title} preview`}
+              >
+                <Maximize2 size={18} />
+              </button>
+            </article>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-16">
+        <div className="mt-12 text-center">
           <Link href="/projects">
-            <button className="bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-secondary transition-colors font-semibold inline-flex items-center gap-2">
-              See All Projects
+            <button className="inline-flex items-center gap-3 bg-[#10141b] px-8 py-4 font-black text-white transition-all hover:-translate-y-1 hover:bg-primary hover:text-[#10141b]">
+              View Full Portfolio
               <ExternalLink size={18} />
             </button>
           </Link>
         </div>
       </div>
+
+      {activeProject && (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/90 p-4"
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            onClick={() => setActiveProject(null)}
+            className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center bg-white text-[#10141b]"
+            aria-label="Close project preview"
+          >
+            <X size={22} />
+          </button>
+          <div className="max-h-[90vh] max-w-5xl">
+            <img
+              src={activeProject.image}
+              alt={`${activeProject.title} large preview`}
+              className="max-h-[78vh] w-full object-contain"
+            />
+            <div className="bg-white p-5 text-[#10141b]">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">{activeProject.category}</p>
+              <h3 className="mt-1 text-2xl font-bold">{activeProject.title}</h3>
+              <p className="mt-2 text-muted-foreground">{activeProject.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

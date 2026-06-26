@@ -2,76 +2,84 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, Phone, X } from "lucide-react"
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navLinks = [
     { href: "/#home", label: "Home" },
-    { href: "/#services", label: "Services" },
-    { href: "/#portfolio", label: "Portfolio" },
-    { href: "/projects", label: "Projects" },
     { href: "/#about", label: "About" },
-    { href: "/#contact", label: "Contact" },
+    { href: "/#services", label: "Services" },
+    { href: "/#portfolio", label: "Our Work" },
+    { href: "/#why-us", label: "Why Us" },
+    { href: "/projects", label: "Projects" },
+    { href: "/contact", label: "Contact" },
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md border-b border-border z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="cursor-pointer">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Guivas & K
-              </h1>
-            </Link>
-          </div>
+    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#090b0f]/88 text-white backdrop-blur-xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
+          <Link href="/" className="group">
+            <div className="text-xl font-black leading-tight tracking-tight sm:text-2xl">
+              Guivas <span className="text-primary">&</span> K
+            </div>
+            <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-white/55 group-hover:text-primary">
+              Design Projects
+            </div>
+          </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground hover:text-primary transition-colors font-medium text-sm"
+                className="text-sm font-bold text-white/75 transition-colors hover:text-primary"
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/#contact">
-              <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-secondary transition-colors font-medium">
+          </div>
+
+          <div className="hidden items-center gap-3 md:flex">
+            <a
+              href="tel:0786940018"
+              className="flex h-11 w-11 items-center justify-center border border-white/15 text-primary transition-colors hover:border-primary hover:bg-primary hover:text-[#10141b]"
+              aria-label="Call Guivas & K Design Projects"
+            >
+              <Phone size={18} />
+            </a>
+            <Link href="/contact">
+              <button className="bg-primary px-6 py-3 text-sm font-black text-[#10141b] transition-all hover:-translate-y-0.5 hover:bg-white">
                 Get Quote
               </button>
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="text-foreground hover:text-primary">
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="flex h-11 w-11 items-center justify-center border border-white/15 text-white lg:hidden"
+            aria-label="Toggle mobile navigation"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileOpen && (
-          <div className="md:hidden pb-4 border-t border-border">
+          <div className="border-t border-white/10 py-5 lg:hidden">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 text-foreground hover:text-primary transition-colors"
+                className="block py-3 font-bold text-white/80 transition-colors hover:text-primary"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/#contact">
-              <button className="w-full mt-4 bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-secondary transition-colors font-medium">
-                Get Quote
-              </button>
+            <Link href="/contact" onClick={() => setMobileOpen(false)}>
+              <button className="mt-4 w-full bg-primary px-6 py-3 font-black text-[#10141b]">Get a Free Quote</button>
             </Link>
           </div>
         )}

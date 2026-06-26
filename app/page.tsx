@@ -10,15 +10,19 @@ import ProfessionalAffiliations from "@/components/professional-affiliations"
 import Testimonials from "@/components/testimonials"
 import CTA from "@/components/cta"
 import Footer from "@/components/footer"
+import WhyChooseUs from "@/components/why-choose-us"
+import LocalBusinessSchema from "@/components/local-business-schema"
 
 export default function Home() {
   return (
     <>
+      <LocalBusinessSchema />
       <Navigation />
       <Hero />
+      <About />
       <Services />
       <Portfolio />
-      <About />
+      <WhyChooseUs />
       <CeoMessage />
       <Certifications />
       <ProfessionalAffiliations />

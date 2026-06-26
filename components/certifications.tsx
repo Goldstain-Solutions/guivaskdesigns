@@ -6,7 +6,8 @@ export default function Certifications() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Professional Certifications</h2>
+          <p className="section-kicker">Trust & Compliance</p>
+          <h2 className="mt-5 text-4xl font-bold text-foreground mb-4">Professional Certifications</h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             We are proudly registered with the National Home Builders Registration Council (NHBRC) and hold a Letter of
             Good Standing from the Department of Labour, demonstrating our commitment to quality, safety, and

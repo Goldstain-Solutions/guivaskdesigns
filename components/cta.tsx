@@ -1,103 +1,56 @@
-'use client'
+"use client"
 
-import { ArrowRight, Phone, Mail } from 'lucide-react'
+import { ArrowRight, Mail, MessageSquare, Phone } from "lucide-react"
+import Link from "next/link"
 
 export default function CTA() {
   return (
-    <section id="contact" className="py-20 bg-primary/5 border-t border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-                Ready to Start Your <span className="text-primary">Project?</span>
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Contact us today for a free consultation. Our team is ready to discuss your project and provide expert guidance.
-              </p>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Phone size={24} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Call us</p>
-                  <p className="font-semibold text-foreground">+1 (555) 123-4567</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Mail size={24} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email us</p>
-                  <p className="font-semibold text-foreground">info@guivasandk.com</p>
-                </div>
-              </div>
-            </div>
-
-            <button className="bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-secondary transition-colors font-semibold inline-flex items-center gap-2">
-              Get Free Quote
-              <ArrowRight size={18} />
-            </button>
-          </div>
-
-          {/* Right form */}
-          <div className="bg-card rounded-2xl p-8 border border-border shadow-lg">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Quick Inquiry</h3>
-            
-            <form className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Your Name</label>
-                <input
-                  type="text"
-                  placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Email Address</label>
-                <input
-                  type="email"
-                  placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Project Type</label>
-                <select className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary">
-                  <option>Select a service...</option>
-                  <option>Building & Construction</option>
-                  <option>Carpentry & Fitting</option>
-                  <option>Painting & Plastering</option>
-                  <option>Design Consultation</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Message</label>
-                <textarea
-                  rows={4}
-                  placeholder="Tell us about your project..."
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-primary text-primary-foreground py-3 rounded-lg hover:bg-secondary transition-colors font-semibold"
-              >
-                Send Inquiry
+    <section className="relative overflow-hidden bg-[#10141b] py-24 text-white">
+      <img
+        src="/images/white-kitchen-1.jpg"
+        alt="Kitchen installation project by Guivas & K Design Projects (Pty) Ltd"
+        className="absolute inset-0 h-full w-full object-cover opacity-30"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,#10141b_0%,rgba(16,20,27,0.88)_55%,rgba(16,20,27,0.6)_100%)]" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl">
+          <p className="section-kicker">Start Your Project</p>
+          <h2 className="mt-5 text-4xl font-bold leading-tight lg:text-7xl">
+            Bring in a construction team that treats the finish as seriously as the structure.
+          </h2>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/74">
+            Request a free quote for construction, renovations, plumbing, tiling, painting, carpentry, bathroom design,
+            or kitchen installation in Randburg and Johannesburg.
+          </p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link href="/contact">
+              <button className="group flex w-full items-center justify-center gap-3 bg-primary px-8 py-4 font-black text-[#10141b] transition-all hover:-translate-y-1 hover:bg-white sm:w-auto">
+                Open Contact Page
+                <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
               </button>
-            </form>
+            </Link>
+            <a
+              href="https://wa.me/27786940018"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-3 border border-white/20 px-8 py-4 font-black text-white transition-all hover:-translate-y-1 hover:border-primary hover:text-primary sm:w-auto"
+            >
+              <MessageSquare size={20} />
+              WhatsApp
+            </a>
           </div>
+        </div>
+
+        <div className="mt-12 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
+          <a href="tel:0786940018" className="flex items-center gap-4 border border-white/10 bg-white/5 p-5">
+            <Phone className="text-primary" />
+            <span className="font-bold">078 694 0018</span>
+          </a>
+          <a href="mailto:guivaskdesigns@gmail.com" className="flex items-center gap-4 border border-white/10 bg-white/5 p-5">
+            <Mail className="text-primary" />
+            <span className="font-bold">guivaskdesigns@gmail.com</span>
+          </a>
         </div>
       </div>
     </section>

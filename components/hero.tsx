@@ -1,81 +1,69 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
+import { ArrowDown, ArrowRight, Building2, Hammer, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 
 export default function Hero() {
   return (
-    <section id="home" className="relative pt-32 pb-20 overflow-hidden bg-background">
-      {/* Background gradient */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-      </div>
+    <section id="home" className="relative min-h-screen overflow-hidden bg-[#090b0f] text-white">
+      <img
+        src="/images/1.jpg"
+        alt="Luxury kitchen and cupboard installation by Guivas & K Design Projects (Pty) Ltd"
+        className="absolute inset-0 h-full w-full object-cover opacity-70"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,10,15,0.96)_0%,rgba(7,10,15,0.74)_42%,rgba(7,10,15,0.34)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_22%,rgba(202,153,77,0.28),transparent_28%),linear-gradient(180deg,transparent_65%,rgba(7,10,15,0.95))]" />
+      <div className="absolute right-8 top-28 hidden h-44 w-44 border border-primary/40 lg:block animate-float-slow" />
+      <div className="absolute right-28 bottom-24 hidden h-28 w-28 border border-white/20 rotate-45 lg:block animate-float-slow" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <div className="space-y-8 z-10">
-            <div className="space-y-6">
-              <div className="inline-block">
-                <span className="text-sm font-semibold text-accent uppercase tracking-wider bg-accent/10 px-4 py-2 rounded-full">
-                  Professional Building & Design
-                </span>
-              </div>
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 pb-16 pt-28 sm:px-6 lg:px-8">
+        <div className="max-w-4xl animate-reveal-up">
+          <p className="section-kicker text-primary">Premium Construction Johannesburg</p>
+          <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-[0.95] sm:text-6xl lg:text-8xl">
+            Building Excellence. Creating Lasting Value.
+          </h1>
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-white/78 sm:text-xl">
+            Professional construction, renovations, plumbing, tiling, flooring, painting, carpentry, bathroom design,
+            kitchen installation, and commercial building services across Johannesburg and surrounding areas.
+          </p>
 
-              <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Build Your <span className="text-primary">Dream Space</span>
-              </h1>
-
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
-                Transform your vision into reality. From concept to completion, we deliver exceptional building,
-                carpentry, and design services that exceed expectations.
-              </p>
-            </div>
-
-            {/* Updated button links */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/#services">
-                <button className="group bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-secondary transition-all duration-300 font-semibold flex items-center justify-center gap-2 w-full sm:w-auto">
-                  Get Started
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </Link>
-              <Link href="/projects">
-                <button className="border-2 border-primary text-primary px-8 py-4 rounded-lg hover:bg-primary/5 transition-colors font-semibold w-full sm:w-auto">
-                  View Portfolio
-                </button>
-              </Link>
-            </div>
-
-            {/* Updated stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
-              <div>
-                <p className="text-3xl font-bold text-primary">50+</p>
-                <p className="text-sm text-muted-foreground">Projects Completed</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">5+</p>
-                <p className="text-sm text-muted-foreground">Years Experience</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">98%</p>
-                <p className="text-sm text-muted-foreground">Client Satisfaction</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right image */}
-          <div className="relative h-96 lg:h-full lg:min-h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-            <img
-              src="/images/hero-kitchen-install.jpg"
-              alt="Professional kitchen installation by Guivas and K Design Projects team"
-              className="w-full h-full object-cover brightness-90 contrast-110 saturate-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-foreground/5 to-transparent"></div>
-            <div className="absolute inset-0 bg-primary/5"></div>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link href="/contact">
+              <button className="group flex w-full items-center justify-center gap-3 bg-primary px-8 py-4 font-bold text-[#10141b] transition-all duration-300 hover:-translate-y-1 hover:bg-white sm:w-auto">
+                Get a Free Quote
+                <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+              </button>
+            </Link>
+            <Link href="/#services">
+              <button className="flex w-full items-center justify-center gap-3 border border-white/30 bg-white/10 px-8 py-4 font-bold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary/20 sm:w-auto">
+                Explore Our Services
+                <Building2 size={20} />
+              </button>
+            </Link>
           </div>
         </div>
+
+        <div className="mt-16 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3">
+          {[
+            ["NHBRC Registered", ShieldCheck],
+            ["Renovation Specialists", Hammer],
+            ["Randburg & Johannesburg", Building2],
+          ].map(([label, Icon]) => (
+            <div key={String(label)} className="border border-white/15 bg-white/[0.08] p-5 backdrop-blur-md">
+              <Icon className="mb-4 text-primary" size={24} />
+              <p className="font-bold">{label}</p>
+            </div>
+          ))}
+        </div>
+
+        <a
+          href="#about"
+          aria-label="Scroll to about section"
+          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-3 text-sm font-bold uppercase tracking-[0.28em] text-white/70 transition-colors hover:text-primary lg:flex"
+        >
+          Scroll
+          <ArrowDown size={18} className="animate-bounce" />
+        </a>
       </div>
     </section>
   )

@@ -333,7 +333,7 @@ export default function ProjectsPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold text-foreground mb-4">Ready to Start Your Project?</h2>
             <p className="text-lg text-foreground/70 mb-8 max-w-2xl mx-auto">
-              Contact us today for a free consultation and see how we can transform your space.
+              Contact Guivas & K Design Projects (Pty) Ltd today for a free consultation and see how we can transform your space.
             </p>
             <a
               href="/contact"

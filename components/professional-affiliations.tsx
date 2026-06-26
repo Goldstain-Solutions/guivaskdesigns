@@ -6,9 +6,10 @@ export default function ProfessionalAffiliations() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#c4d82e] mb-6">PROFESSIONAL AFFILIATIONS</h2>
+          <p className="section-kicker">Industry Readiness</p>
+          <h2 className="mt-5 text-4xl lg:text-5xl font-bold text-[#c4d82e] mb-6">PROFESSIONAL AFFILIATIONS</h2>
           <p className="text-white text-lg max-w-4xl mx-auto leading-relaxed">
-            As a leader in the construction sector, Guivas and K Design Projects is committed to understanding and
+            As a leader in the construction sector, Guivas & K Design Projects (Pty) Ltd is committed to understanding and
             meeting the requirements of the regulatory frameworks that govern the industry. The company's leadership
             team are active members across a spectrum of relevant associations and regulatory bodies.
           </p>

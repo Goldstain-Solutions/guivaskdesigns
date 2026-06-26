@@ -10,26 +10,36 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
+    service: "",
+    location: "",
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+    const message = [
+      "New quote request for Guivas & K Design Projects (Pty) Ltd",
+      `Full Name: ${formData.name}`,
+      `Phone Number: ${formData.phone}`,
+      `Email Address: ${formData.email}`,
+      `Service Needed: ${formData.service}`,
+      `Project Location: ${formData.location}`,
+      `Message: ${formData.message}`,
+    ].join("\n")
+
+    window.location.href = `https://wa.me/27786940018?text=${encodeURIComponent(message)}`
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     })
   }
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16 space-y-4">
           <span className="text-sm font-semibold text-accent uppercase tracking-wider bg-accent/10 px-4 py-2 rounded-full inline-block">
             Get in Touch
@@ -41,7 +51,6 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-6">Let's Build Something Great Together</h3>
@@ -81,10 +90,10 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Email</h4>
                   <a
-                    href="mailto:adoracionmosiapoa@gmail.com"
+                    href="mailto:guivaskdesigns@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    adoracionmosiapoa@gmail.com
+                    guivaskdesigns@gmail.com
                   </a>
                 </div>
               </div>
@@ -98,19 +107,18 @@ export default function Contact() {
                   <p className="text-muted-foreground">
                     6159 Sierra Leone Avenue
                     <br />
-                    Cosmo City Ext 06, Randburg
+                    Cosmo City Ext 06, Randburg, 2188
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-card border border-border rounded-2xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  Your Name
+                  Full Name
                 </label>
                 <input
                   type="text"
@@ -119,7 +127,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                  placeholder="John Doe"
+                  placeholder="Your full name"
                   required
                 />
               </div>
@@ -135,7 +143,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                  placeholder="john@example.com"
+                  placeholder="you@example.com"
                   required
                 />
               </div>
@@ -151,13 +159,46 @@ export default function Contact() {
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                  placeholder="0786940018"
+                  placeholder="078 694 0018"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
+                  Service Needed
+                </label>
+                <input
+                  type="text"
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                  placeholder="Kitchen & Cupboard Installation"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="location" className="block text-sm font-medium text-foreground mb-2">
+                  Project Location
+                </label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                  placeholder="Randburg"
+                  required
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Project Details
+                  Message
                 </label>
                 <textarea
                   id="message"
@@ -168,14 +209,14 @@ export default function Contact() {
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
                   placeholder="Tell us about your project..."
                   required
-                ></textarea>
+                />
               </div>
 
               <button
                 type="submit"
                 className="w-full bg-primary text-primary-foreground py-4 rounded-lg hover:bg-secondary transition-colors font-semibold flex items-center justify-center gap-2"
               >
-                Send Message
+                Send via WhatsApp
                 <Send size={18} />
               </button>
             </form>

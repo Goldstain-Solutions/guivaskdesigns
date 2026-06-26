@@ -7,7 +7,7 @@ const testimonials = [
     name: "Thabo Mthembu",
     role: "Homeowner",
     image: "/placeholder.svg?height=100&width=100",
-    text: "Guivas and K transformed our home beyond our expectations. Their attention to detail and professional service made the entire process smooth and enjoyable.",
+    text: "Guivas & K Design Projects (Pty) Ltd transformed our home beyond our expectations. Their attention to detail and professional service made the entire process smooth and enjoyable.",
     rating: 5,
   },
   {
@@ -21,7 +21,7 @@ const testimonials = [
     name: "Nomvula Khumalo",
     role: "Real Estate Developer",
     image: "/placeholder.svg?height=100&width=100",
-    text: "Working with Guivas and K on multiple projects has been consistently excellent. They're reliable, skilled, and truly care about their work.",
+    text: "Working with Guivas & K Design Projects (Pty) Ltd on multiple projects has been consistently excellent. They're reliable, skilled, and truly care about their work.",
     rating: 5,
   },
 ]
@@ -32,9 +32,9 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
-          <span className="text-sm font-semibold text-accent uppercase tracking-wider bg-accent/10 px-4 py-2 rounded-full inline-block">
+          <p className="section-kicker">
             Testimonials
-          </span>
+          </p>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
             What Clients <span className="text-primary">Say</span>
           </h2>
