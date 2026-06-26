@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   creator: 'Guivas & K Design Projects (Pty) Ltd',
   publisher: 'Guivas & K Design Projects (Pty) Ltd',
   category: 'Construction',
+  verification: {
+    google: 'kYtMZgFk0snTW9mt1x44J5NlAFZIfRdHYKKiS_sZUvo',
+  },
   alternates: {
     canonical: 'https://newguivaskdesigns.netlify.app/',
   },
