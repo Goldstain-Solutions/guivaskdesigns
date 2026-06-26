@@ -81,7 +81,7 @@ export default function Portfolio() {
     selectedCategory === "All" ? projects : projects.filter((project) => project.category === selectedCategory)
 
   return (
-    <section id="portfolio" className="bg-background py-24">
+    <section id="portfolio" className="bg-background py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
@@ -95,10 +95,10 @@ export default function Portfolio() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`border px-4 py-2 text-sm font-bold transition-all ${
+                className={`rounded-full border px-5 py-2.5 text-sm font-bold transition-all duration-300 ${
                   selectedCategory === category
-                    ? "border-primary bg-primary text-[#10141b]"
-                    : "border-border bg-card text-foreground hover:border-primary"
+                    ? "border-primary bg-primary text-[#16120c] shadow-[0_14px_36px_rgba(166,123,55,0.2)]"
+                    : "border-border bg-card/80 text-foreground hover:border-primary hover:bg-primary/10"
                 }`}
               >
                 {category}
@@ -107,16 +107,16 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="grid auto-rows-[260px] grid-cols-1 gap-5 md:grid-cols-4">
+        <div className="grid auto-rows-[280px] grid-cols-1 gap-6 md:grid-cols-4">
           {filteredProjects.map((project) => (
             <article
               key={project.id}
-              className={`group relative overflow-hidden bg-[#10141b] ${project.span}`}
+              className={`group relative overflow-hidden rounded-[2.2rem] bg-[#17140f] shadow-[0_24px_90px_rgba(42,34,23,0.12)] ${project.span}`}
             >
               <img
                 src={project.image}
                 alt={`${project.title} by Guivas & K Design Projects (Pty) Ltd`}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="image-bloom h-full w-full object-cover"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-90" />
@@ -127,7 +127,7 @@ export default function Portfolio() {
               </div>
               <button
                 onClick={() => setActiveProject(project)}
-                className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center bg-white/12 text-white opacity-0 backdrop-blur transition-all hover:bg-primary hover:text-[#10141b] group-hover:opacity-100"
+                className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/14 text-white opacity-0 backdrop-blur transition-all duration-300 hover:bg-primary hover:text-[#16120c] group-hover:opacity-100"
                 aria-label={`Open ${project.title} preview`}
               >
                 <Maximize2 size={18} />
@@ -138,7 +138,7 @@ export default function Portfolio() {
 
         <div className="mt-12 text-center">
           <Link href="/projects">
-            <button className="inline-flex items-center gap-3 bg-[#10141b] px-8 py-4 font-black text-white transition-all hover:-translate-y-1 hover:bg-primary hover:text-[#10141b]">
+            <button className="magnetic-button inline-flex items-center gap-3 bg-[#17140f] px-9 py-4 font-black text-white hover:bg-primary hover:text-[#16120c]">
               View Full Portfolio
               <ExternalLink size={18} />
             </button>
@@ -154,7 +154,7 @@ export default function Portfolio() {
         >
           <button
             onClick={() => setActiveProject(null)}
-            className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center bg-white text-[#10141b]"
+            className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#16120c]"
             aria-label="Close project preview"
           >
             <X size={22} />
@@ -165,7 +165,7 @@ export default function Portfolio() {
               alt={`${activeProject.title} large preview`}
               className="max-h-[78vh] w-full object-contain"
             />
-            <div className="bg-white p-5 text-[#10141b]">
+            <div className="rounded-b-[2rem] bg-white p-5 text-[#16120c]">
               <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">{activeProject.category}</p>
               <h3 className="mt-1 text-2xl font-bold">{activeProject.title}</h3>
               <p className="mt-2 text-muted-foreground">{activeProject.description}</p>

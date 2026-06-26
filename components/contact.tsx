@@ -64,7 +64,7 @@ export default function Contact() {
               href="https://wa.me/27786940018"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-5 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl group text-lg"
+              className="flex items-center justify-center gap-3 bg-primary text-[#16120c] font-bold py-5 px-8 rounded-full transition-all duration-300 shadow-lg hover:-translate-y-1 hover:shadow-2xl group text-lg"
             >
               <MessageSquare size={28} className="group-hover:scale-110 transition-transform" />
               <span>Chat with Owner on WhatsApp</span>

@@ -18,7 +18,7 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#090b0f]/88 text-white backdrop-blur-xl">
+    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#17140f]/88 text-white backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="group">
@@ -45,13 +45,13 @@ export default function Navigation() {
           <div className="hidden items-center gap-3 md:flex">
             <a
               href="tel:0786940018"
-              className="flex h-11 w-11 items-center justify-center border border-white/15 text-primary transition-colors hover:border-primary hover:bg-primary hover:text-[#10141b]"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-primary transition-colors hover:border-primary hover:bg-primary hover:text-[#16120c]"
               aria-label="Call Guivas & K Design Projects"
             >
               <Phone size={18} />
             </a>
             <Link href="/contact">
-              <button className="bg-primary px-6 py-3 text-sm font-black text-[#10141b] transition-all hover:-translate-y-0.5 hover:bg-white">
+              <button className="magnetic-button bg-primary px-6 py-3 text-sm font-black text-[#16120c] hover:bg-white">
                 Get Quote
               </button>
             </Link>
@@ -59,7 +59,7 @@ export default function Navigation() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex h-11 w-11 items-center justify-center border border-white/15 text-white lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white lg:hidden"
             aria-label="Toggle mobile navigation"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -79,7 +79,7 @@ export default function Navigation() {
               </Link>
             ))}
             <Link href="/contact" onClick={() => setMobileOpen(false)}>
-              <button className="mt-4 w-full bg-primary px-6 py-3 font-black text-[#10141b]">Get a Free Quote</button>
+              <button className="magnetic-button mt-4 w-full bg-primary px-6 py-3 font-black text-[#16120c]">Get a Free Quote</button>
             </Link>
           </div>
         )}

@@ -1,0 +1,23 @@
+{
+  "name": "Guivas & K Design Projects",
+  "short_name": "Guivas & K",
+  "description": "Construction, renovation, plumbing, tiling, painting, carpentry, bathroom, and kitchen installation services in Randburg and Johannesburg.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#17140f",
+  "theme_color": "#c99a4d",
+  "icons": [
+    {
+      "src": "/icon-light-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -12,13 +12,13 @@ export default function About() {
           <img
             src="/images/construction-1.jpg"
             alt="Residential construction by Guivas & K Design Projects (Pty) Ltd in Johannesburg"
-            className="h-[520px] w-full object-cover shadow-2xl"
+            className="h-[520px] w-full rounded-[2.5rem] object-cover shadow-2xl"
           />
-          <div className="absolute bottom-0 right-0 max-w-sm bg-[#10141b] p-8 text-white shadow-2xl">
+          <div className="absolute bottom-0 right-0 max-w-sm rounded-[2rem_0_2rem_2rem] bg-[#17140f] p-8 text-white shadow-2xl">
             <p className="font-mono text-5xl font-black text-primary">50+</p>
             <p className="mt-2 font-bold uppercase tracking-[0.2em] text-white/70">Projects completed</p>
           </div>
-          <div className="absolute -left-6 top-10 hidden h-32 w-32 border border-primary/60 lg:block" />
+          <div className="absolute -left-6 top-10 hidden h-36 w-36 rounded-[42%_58%_62%_38%/48%_38%_62%_52%] border border-primary/60 lg:block animate-drift-soft" />
         </div>
 
         <div className="flex flex-col justify-center">
@@ -39,7 +39,7 @@ export default function About() {
               ["Measured workmanship", Ruler],
               ["Safety minded", ShieldCheck],
             ].map(([label, Icon]) => (
-              <div key={String(label)} className="border border-border bg-card p-5">
+              <div key={String(label)} className="soft-card p-5">
                 <Icon className="mb-4 text-primary" size={24} />
                 <p className="font-bold">{label}</p>
               </div>
@@ -61,7 +61,7 @@ export default function About() {
           </div>
 
           <Link href="/contact" className="mt-10 inline-block">
-            <button className="bg-[#10141b] px-8 py-4 font-black text-white transition-all hover:-translate-y-1 hover:bg-primary hover:text-[#10141b]">
+            <button className="magnetic-button bg-[#17140f] px-9 py-4 font-black text-white hover:bg-primary hover:text-[#16120c]">
               Request a Consultation
             </button>
           </Link>

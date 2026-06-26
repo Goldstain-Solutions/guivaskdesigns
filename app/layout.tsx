@@ -1,25 +1,32 @@
 import type { Metadata } from 'next'
-import { Manrope, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://newguivaskdesigns.netlify.app'),
-  title: 'Guivas & K Design Projects | Construction & Renovation Services in Randburg',
+  applicationName: 'Guivas & K Design Projects',
+  title: {
+    default: 'Guivas & K Design Projects | Construction & Renovation Services in Randburg',
+    template: '%s | Guivas & K Design Projects',
+  },
   description: 'Guivas & K Design Projects (Pty) Ltd offers premium construction, home renovations, plumbing, painting, tiling, carpentry, bathroom renovations, kitchen installation, and commercial building services in Randburg and Johannesburg.',
-  keywords: 'Guivas & K Design Projects, Guivas and K, Construction Company Randburg, Builders Johannesburg, Construction Company Johannesburg, Home Renovations Johannesburg, Bathroom Renovations Randburg, Plumbing Services Randburg, Kitchen Installation Randburg, Tiling Contractors Johannesburg, Building Contractors Near Me',
+  keywords: [
+    'Guivas & K Design Projects',
+    'Guivas and K',
+    'Construction Company Randburg',
+    'Builders Johannesburg',
+    'Construction Company Johannesburg',
+    'Home Renovations Johannesburg',
+    'Bathroom Renovations Randburg',
+    'Plumbing Services Randburg',
+    'Kitchen Installation Randburg',
+    'Tiling Contractors Johannesburg',
+    'Building Contractors Near Me',
+  ],
+  authors: [{ name: 'Guivas & K Design Projects (Pty) Ltd' }],
+  creator: 'Guivas & K Design Projects (Pty) Ltd',
+  publisher: 'Guivas & K Design Projects (Pty) Ltd',
+  category: 'Construction',
   alternates: {
     canonical: 'https://newguivaskdesigns.netlify.app/',
   },
@@ -39,13 +46,24 @@ export const metadata: Metadata = {
       },
     ],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'Guivas & K Design Projects | Construction & Renovation Services in Randburg',
     description: 'Premium building contractors for construction, renovations, kitchens, bathrooms, plumbing, tiling, painting, and carpentry in Johannesburg.',
     images: ['/images/1.jpg'],
   },
-  generators: 'v0.app',
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: [
       {
@@ -63,7 +81,6 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
-    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -73,7 +90,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>

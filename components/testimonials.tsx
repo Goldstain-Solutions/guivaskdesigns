@@ -28,7 +28,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
@@ -48,7 +48,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-card rounded-xl p-8 border border-border hover:border-primary transition-all duration-300 hover:shadow-lg"
+              className="soft-card p-8"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4">

@@ -92,7 +92,9 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-muted/30">
+    <section id="services" className="relative overflow-hidden bg-muted/30 py-24">
+      <div className="absolute -left-20 top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+      <div className="absolute -right-24 bottom-16 h-80 w-80 rounded-full bg-accent/10 blur-3xl" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 space-y-4">
           <p className="section-kicker">
@@ -108,31 +110,31 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="relative grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => {
             const Icon = service.icon
             return (
               <article
                 key={service.title}
-                className="group bg-card overflow-hidden border border-border hover:border-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="soft-card group overflow-hidden"
               >
-                <div className="relative h-48 overflow-hidden bg-muted">
+                <div className="relative h-52 overflow-hidden rounded-b-[2.4rem] bg-muted">
                   <img
                     src={service.image}
                     alt={`${service.title} by Guivas & K Design Projects (Pty) Ltd`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="image-bloom w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
-                  <div className="absolute left-5 bottom-5 w-12 h-12 bg-primary text-primary-foreground rounded-lg flex items-center justify-center shadow-lg">
+                  <div className="absolute left-5 bottom-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-[#16120c] shadow-lg">
                     <Icon size={24} />
                   </div>
                 </div>
 
-                <div className="p-6 space-y-4">
+                <div className="p-7 space-y-4">
                   <h3 className="text-xl font-bold text-foreground">{service.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
                   <Link href="/contact">
-                    <button className="w-full bg-primary/10 text-primary px-5 py-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors font-semibold">
+                    <button className="magnetic-button w-full bg-primary/10 px-5 py-3 font-bold text-primary hover:bg-primary hover:text-[#16120c]">
                       Request Quote
                     </button>
                   </Link>

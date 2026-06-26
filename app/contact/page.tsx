@@ -83,13 +83,13 @@ export default function ContactPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navigation />
       <main className="bg-background">
-        <section className="relative overflow-hidden bg-[#090b0f] px-4 pb-20 pt-36 text-white sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden bg-[#17140f] px-4 pb-24 pt-36 text-white sm:px-6 lg:px-8">
           <img
             src="/images/polished-floor.jpg"
             alt="Polished flooring project by Guivas & K Design Projects (Pty) Ltd"
             className="absolute inset-0 h-full w-full object-cover opacity-35"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,#090b0f_0%,rgba(9,11,15,0.86)_62%,rgba(9,11,15,0.55)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_22%,rgba(198,148,69,0.22),transparent_30%),linear-gradient(96deg,#17140f_0%,rgba(23,20,15,0.87)_62%,rgba(23,20,15,0.58)_100%)]" />
           <div className="relative mx-auto max-w-7xl">
             <p className="section-kicker">Contact</p>
             <h1 className="mt-5 max-w-4xl text-5xl font-bold leading-tight lg:text-7xl">
@@ -106,7 +106,7 @@ export default function ContactPage() {
         <section className="py-20">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
             <div className="space-y-6">
-              <div className="border border-border bg-card p-7">
+              <div className="soft-card p-7">
                 <h2 className="text-3xl font-bold">Business Information</h2>
                 <div className="mt-6 space-y-5">
                   <div className="flex gap-4">
@@ -136,7 +136,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="border border-border bg-card p-7">
+              <div className="soft-card p-7">
                 <h3 className="mb-5 flex items-center gap-3 text-2xl font-bold">
                   <Clock3 className="text-primary" />
                   Business Hours
@@ -157,7 +157,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="border border-border bg-card p-7">
+              <div className="soft-card p-7">
                 <h3 className="mb-5 flex items-center gap-3 text-2xl font-bold">
                   <Route className="text-primary" />
                   Service Areas
@@ -170,7 +170,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                 <a
                   href="tel:0786940018"
-                  className="flex items-center justify-center gap-2 bg-[#10141b] px-4 py-4 font-black text-white"
+                  className="magnetic-button flex items-center justify-center gap-2 bg-[#17140f] px-4 py-4 font-black text-white"
                 >
                   <Phone size={18} />
                   Call
@@ -179,14 +179,14 @@ export default function ContactPage() {
                   href={whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#25D366] px-4 py-4 font-black text-white"
+                  className="magnetic-button flex items-center justify-center gap-2 bg-primary/90 px-4 py-4 font-black text-[#16120c]"
                 >
                   <MessageSquare size={18} />
                   WhatsApp
                 </a>
                 <a
                   href={mailHref}
-                  className="flex items-center justify-center gap-2 border border-primary px-4 py-4 font-black text-primary"
+                  className="magnetic-button flex items-center justify-center gap-2 border border-primary/70 px-4 py-4 font-black text-primary hover:bg-primary/10"
                 >
                   <Mail size={18} />
                   Email
@@ -194,7 +194,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="border border-border bg-card p-6 shadow-xl sm:p-8">
+            <div className="soft-card p-6 sm:p-8">
               <h2 className="text-3xl font-bold">Quote Form</h2>
               <p className="mt-2 text-muted-foreground">
                 Submit the form and your completed details will open in WhatsApp for quick sending.
@@ -212,7 +212,7 @@ export default function ContactPage() {
                       value={formData.fullName}
                       onChange={handleChange}
                       required
-                      className="w-full border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
+                      className="w-full rounded-2xl border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
                     />
                   </div>
                   <div>
@@ -226,7 +226,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
+                      className="w-full rounded-2xl border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
                     />
                   </div>
                 </div>
@@ -243,7 +243,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
+                      className="w-full rounded-2xl border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
                     />
                   </div>
                   <div>
@@ -256,7 +256,7 @@ export default function ContactPage() {
                       value={formData.service}
                       onChange={handleChange}
                       required
-                      className="w-full border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
+                      className="w-full rounded-2xl border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
                     >
                       <option value="">Select a service...</option>
                       {services.map((service) => (
@@ -278,7 +278,7 @@ export default function ContactPage() {
                     value={formData.location}
                     onChange={handleChange}
                     required
-                    className="w-full border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
+                    className="w-full rounded-2xl border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
@@ -293,13 +293,13 @@ export default function ContactPage() {
                     onChange={handleChange}
                     rows={6}
                     required
-                    className="w-full resize-none border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
+                    className="w-full resize-none rounded-2xl border border-input bg-background px-4 py-3 outline-none transition focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center gap-3 bg-primary px-8 py-4 font-black text-[#10141b] transition-all hover:-translate-y-1 hover:bg-[#10141b] hover:text-white"
+                  className="magnetic-button sheen flex w-full items-center justify-center gap-3 bg-primary px-8 py-4 font-black text-[#16120c] hover:bg-[#17140f] hover:text-white"
                 >
                   Send Quote Request via WhatsApp
                   <Send size={18} />
@@ -310,7 +310,7 @@ export default function ContactPage() {
         </section>
 
         <section className="px-4 pb-20 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl overflow-hidden border border-border bg-card">
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-border bg-card shadow-[0_24px_90px_rgba(42,34,23,0.1)]">
             <iframe
               title="Guivas & K Design Projects Google Map"
               src="https://www.google.com/maps?q=6159%20Sierra%20Leone%20Avenue%20Cosmo%20City%20Ext%2006%20Randburg%202188&output=embed"
